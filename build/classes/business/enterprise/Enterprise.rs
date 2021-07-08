@@ -1,0 +1,2 @@
+business.enterprise.Enterprise
+business.enterprise.Enterprise$EnterpriseType

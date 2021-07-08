@@ -1,0 +1,2 @@
+business.organization.Organization$Type
+business.organization.Organization
