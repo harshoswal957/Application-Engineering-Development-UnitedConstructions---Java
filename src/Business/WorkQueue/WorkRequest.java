@@ -21,7 +21,9 @@ public abstract class WorkRequest {
     private Date lastUpdatedDate;
     private String status;
 
-   
+    public enum WorkRequestType {
+        
+    }
 
     public WorkRequest(String name) {
         this.name = name;

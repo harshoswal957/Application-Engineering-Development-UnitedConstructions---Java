@@ -30,9 +30,8 @@ public class OrganizationDirectory {
             organization = new AdminOrganization();
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Layout.getValue())) {
-            //organization = new CustomerOrganization();
+            organization = new LayoutOrganization();
             organizationList.add(organization);
-
         }
         return organization;
     }
