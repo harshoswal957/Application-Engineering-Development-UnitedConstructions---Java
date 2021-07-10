@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  *
  * @author Harsh
  */
-public class ArchitectRole extends Role {
+public class RealtorStaffRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
