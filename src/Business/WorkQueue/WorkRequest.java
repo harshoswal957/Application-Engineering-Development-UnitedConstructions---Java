@@ -22,7 +22,18 @@ public abstract class WorkRequest {
     private String status;
 
     public enum WorkRequestType {
-        
+        BuyFurnishedApartment("Buy Furnished Apartment");
+
+
+        private String value;
+
+        private WorkRequestType(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
     }
 
     public WorkRequest(String name) {
