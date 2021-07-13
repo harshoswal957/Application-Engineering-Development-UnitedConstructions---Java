@@ -22,6 +22,7 @@ public abstract class WorkRequest {
     private String status;
 
     public enum WorkRequestType {
+        SelfDesigned("Self Designed"),
         BuyFurnishedApartment("Buy Furnished Apartment");
 
 
