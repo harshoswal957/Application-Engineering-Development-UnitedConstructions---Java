@@ -79,6 +79,9 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerCartjTable = new javax.swing.JTable();
+        viewDetailjBtn = new javax.swing.JButton();
+        placeOrderjBtn = new javax.swing.JButton();
+        deletejButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
         customerTextField = new javax.swing.JTextField();
         refreshJButton = new javax.swing.JButton();
@@ -116,6 +119,36 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 790, 270));
+
+        viewDetailjBtn.setBackground(new java.awt.Color(204, 204, 255));
+        viewDetailjBtn.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
+        viewDetailjBtn.setText("View Details");
+        viewDetailjBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewDetailjBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(viewDetailjBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, 170, 70));
+
+        placeOrderjBtn.setBackground(new java.awt.Color(204, 204, 255));
+        placeOrderjBtn.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
+        placeOrderjBtn.setText("Confirm & Place Order");
+        placeOrderjBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                placeOrderjBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(placeOrderjBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 610, 240, 70));
+
+        deletejButton.setBackground(new java.awt.Color(204, 204, 255));
+        deletejButton.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
+        deletejButton.setText("Delete");
+        deletejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletejButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deletejButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 610, 160, 70));
 
         backJButton.setBackground(new java.awt.Color(204, 204, 255));
         backJButton.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
@@ -176,17 +209,78 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
+    private void viewDetailjBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailjBtnActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRow = customerCartjTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        SelfDesignedOrderItem oi = (SelfDesignedOrderItem) customerCartjTable.getValueAt(selectedRow, 0);
+        ViewOrderDetailsJPanel vjp = new ViewOrderDetailsJPanel(userProcessContainer, oi);
+        userProcessContainer.add("VerifyOrderJPanel", vjp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_viewDetailjBtnActionPerformed
+
+    private void deletejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletejButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = customerCartjTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            SelfDesignedOrderItem oi = (SelfDesignedOrderItem) customerCartjTable.getValueAt(selectedRow, 0);
+            order.removeOrderItem(oi);
+            populateTable();
+        }
+    }//GEN-LAST:event_deletejButtonActionPerformed
+
+    private void placeOrderjBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeOrderjBtnActionPerformed
+
+        int selectedRow = customerCartjTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        mod.addOrderFromInput(order);
+
+        SelfDesignedWorkRequest cworkrequest = new SelfDesignedWorkRequest();
+        cworkrequest.setOrder(order);
+        cworkrequest.setStatus("Placed");
+        cworkrequest.setCustomerSender(userAccount);
+        userAccount.getWorkQueue().getWorkRequestList().add(cworkrequest);
+
+        for (Network network : business.getNetworkList()) {
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enterprise instanceof CustomerSupportEnterprise) {
+                    for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                        if (organization instanceof RealtorOrganization) {
+
+                            organization.getWorkQueue().getWorkRequestList().add(cworkrequest);
+
+                        }
+                    }
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Order Placed Successfully", "Information!!", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_placeOrderjBtnActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JTable customerCartjTable;
     private javax.swing.JTextField customerTextField;
+    private javax.swing.JButton deletejButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton placeOrderjBtn;
     private javax.swing.JButton refreshJButton;
+    private javax.swing.JButton viewDetailjBtn;
     // End of variables declaration//GEN-END:variables
 }
