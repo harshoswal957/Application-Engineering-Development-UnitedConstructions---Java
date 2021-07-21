@@ -38,6 +38,12 @@ public class OrganizationDirectory {
         } else if (type.getValue().equals(Type.Inventory.getValue())) {
             organization = new InventoryOrganization();
             organizationList.add(organization);
+        } else if (type.getValue().equals(Type.Realtor.getValue())) {
+            organization = new RealtorOrganization();
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.RealtorPropertyManager.getValue())) {
+            organization = new RealtorPropertyManagerOrganization();
+            organizationList.add(organization);
         } else if (type.getValue().equals(Type.Customer.getValue())) {
             organization = new CustomerOrganization();
             organizationList.add(organization);
