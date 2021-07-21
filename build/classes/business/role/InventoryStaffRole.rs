@@ -1,0 +1,1 @@
+business.role.InventoryStaffRole
