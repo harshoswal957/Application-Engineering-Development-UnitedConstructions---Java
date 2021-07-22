@@ -101,6 +101,8 @@ public class RealtorPropertyManagerWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel2 = new javax.swing.JLabel();
         refreshTestJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        apartmentTypeJComboBox = new javax.swing.JComboBox<>();
+        housingComplexTypeJComboBox = new javax.swing.JComboBox<>();
         quantityJTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -178,6 +180,26 @@ public class RealtorPropertyManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 100, 50));
+
+        apartmentTypeJComboBox.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
+        apartmentTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Studio", "2BHK", "3BHK" }));
+        apartmentTypeJComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        apartmentTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apartmentTypeJComboBoxActionPerformed(evt);
+            }
+        });
+        add(apartmentTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 210, 270, -1));
+
+        housingComplexTypeJComboBox.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
+        housingComplexTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments" }));
+        housingComplexTypeJComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        housingComplexTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                housingComplexTypeJComboBoxActionPerformed(evt);
+            }
+        });
+        add(housingComplexTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, 270, -1));
 
         quantityJTextField.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
         quantityJTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -400,12 +422,42 @@ public class RealtorPropertyManagerWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_quantityJTextFieldActionPerformed
 
+    private void housingComplexTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_housingComplexTypeJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_housingComplexTypeJComboBoxActionPerformed
+
+    private void apartmentTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apartmentTypeJComboBoxActionPerformed
+
+        final DefaultComboBoxModel studioHousingComplexTypeJComboBox = new DefaultComboBoxModel(new String[]{"Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments"});
+        final DefaultComboBoxModel bhk2HousingComplexTypeJComboBox = new DefaultComboBoxModel(new String[]{"Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments"});
+        final DefaultComboBoxModel bhk3HousingComplexTypeJComboBox = new DefaultComboBoxModel(new String[]{"Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments"});
+
+        apartmentTypeJComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (apartmentTypeJComboBox.getSelectedItem().equals("Studio")) {
+                    housingComplexTypeJComboBox.setModel(studioHousingComplexTypeJComboBox);
+
+                } else if(apartmentTypeJComboBox.getSelectedItem().equals("2BHK")){
+                    housingComplexTypeJComboBox.setModel(bhk2HousingComplexTypeJComboBox);
+                }
+                else {
+                    housingComplexTypeJComboBox.setModel(bhk3HousingComplexTypeJComboBox);
+                }
+
+            }
+
+        });
+    }//GEN-LAST:event_apartmentTypeJComboBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> apartmentTypeJComboBox;
     private javax.swing.JButton backJButton;
     private javax.swing.JButton createRealtorAptjButton;
     private javax.swing.JLabel enterpriseLabel2;
     private javax.swing.JLabel enterpriseLabel3;
+    private javax.swing.JComboBox<String> housingComplexTypeJComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
