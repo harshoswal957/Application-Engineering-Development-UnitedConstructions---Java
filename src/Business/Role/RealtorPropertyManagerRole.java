@@ -6,20 +6,29 @@
 package business.role;
 
 import business.ecosystem.Ecosystem;
+import business.enterprise.RealtorEnterprise;
 import business.enterprise.Enterprise;
 import business.organization.Organization;
+import business.organization.RealtorPropertyManagerOrganization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.RealtorPropertyManager.RealtorPropertyManagerWorkAreaManagementJPanel;
 
 /**
  *
  * @author Harsh
  */
 public class RealtorPropertyManagerRole extends Role {
-
+    //
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        return new RealtorPropertyManagerWorkAreaManagementJPanel(userProcessContainer, account, (RealtorPropertyManagerOrganization) organization, (RealtorEnterprise) enterprise, business);
+
     }
-    
+
+    @Override
+    public String toString() {
+        return "Realtor Property Manager"; //To change body of generated methods, choose Tools | Templates.
+    }
 }

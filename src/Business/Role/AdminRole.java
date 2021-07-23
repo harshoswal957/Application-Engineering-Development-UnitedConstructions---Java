@@ -10,7 +10,7 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
-
+import userinterface.administrativerole.AdminWorkAreaJPanel;
 
 /**
  *
@@ -18,10 +18,24 @@ import javax.swing.JPanel;
  */
 public class AdminRole extends Role {
 
+    /**
+     *
+     * @param userProcessContainer
+     * @param account
+     * @param organization
+     * @param enterprise
+     * @param business
+     * @return
+     */
     @Override
+
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
     }
-    
+
+    @Override
+    public String toString() {
+        return "Admin"; //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

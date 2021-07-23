@@ -6,10 +6,13 @@
 package business.role;
 
 import business.ecosystem.Ecosystem;
+import business.enterprise.CustomerSupportEnterprise;
 import business.enterprise.Enterprise;
+import business.organization.CustomerOrganization;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.customer.CustomerMainJPanel;
 
 /**
  *
@@ -19,8 +22,12 @@ public class CustomerRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        return new CustomerMainJPanel(userProcessContainer, account, (CustomerOrganization) organization, (CustomerSupportEnterprise) enterprise, business);
     }
 
-    
+    @Override
+    public String toString() {
+        return "Customer"; //To change body of generated methods, choose Tools | Templates.
+    }
 }
