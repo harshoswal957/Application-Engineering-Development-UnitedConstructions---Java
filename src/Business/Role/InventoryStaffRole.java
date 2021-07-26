@@ -6,10 +6,13 @@
 package business.role;
 
 import business.ecosystem.Ecosystem;
+import business.enterprise.UnitedConstructionEnterprise;
 import business.enterprise.Enterprise;
+import business.organization.InventoryOrganization;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.inventoryrole.InventoryWorkAreaManagementJPanel;
 
 /**
  *
@@ -19,8 +22,11 @@ public class InventoryStaffRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new InventoryWorkAreaManagementJPanel(userProcessContainer, account, (InventoryOrganization) organization, (UnitedConstructionEnterprise) enterprise, business);
     }
 
-    
+    @Override
+    public String toString() {
+        return "Inventory Staff"; //To change body of generated methods, choose Tools | Templates.
+    }
 }

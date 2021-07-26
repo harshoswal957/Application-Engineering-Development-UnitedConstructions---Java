@@ -6,10 +6,13 @@
 package business.role;
 
 import business.ecosystem.Ecosystem;
+import business.enterprise.UnitedConstructionEnterprise;
 import business.enterprise.Enterprise;
+import business.organization.LabourOrganization;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.LabourRole.LabourWorkAreaManangementJPanel;
 
 /**
  *
@@ -19,8 +22,11 @@ public class LabourRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new LabourWorkAreaManangementJPanel(userProcessContainer, account, (LabourOrganization) organization, (UnitedConstructionEnterprise) enterprise, business);
     }
 
-    
+    @Override
+    public String toString() {
+        return "Labour"; //To change body of generated methods, choose Tools | Templates.
+    }
 }
