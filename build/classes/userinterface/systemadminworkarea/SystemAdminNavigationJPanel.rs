@@ -1,5 +1,0 @@
-userinterface.systemadminworkarea.SystemAdminNavigationJPanel$3
-userinterface.systemadminworkarea.SystemAdminNavigationJPanel$2
-userinterface.systemadminworkarea.SystemAdminNavigationJPanel$4
-userinterface.systemadminworkarea.SystemAdminNavigationJPanel$1
-userinterface.systemadminworkarea.SystemAdminNavigationJPanel
