@@ -23,8 +23,10 @@ public abstract class WorkRequest {
 
     public enum WorkRequestType {
         SelfDesigned("Self Designed"),
-        BuyFurnishedApartment("Buy Furnished Apartment");
-
+        RealtorCompany("Realtor Company"),
+        Inventory("Inventory"),
+        BuyFurnishedApartment("Buy Furnished Apartment"),
+        Regulatory("Regulatory");
 
         private String value;
 

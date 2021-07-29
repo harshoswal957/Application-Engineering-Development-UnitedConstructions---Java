@@ -1,0 +1,7 @@
+userinterface.customer.CustomerOrdersJPanel
+userinterface.customer.CustomerOrdersJPanel$5
+userinterface.customer.CustomerOrdersJPanel$6
+userinterface.customer.CustomerOrdersJPanel$3
+userinterface.customer.CustomerOrdersJPanel$4
+userinterface.customer.CustomerOrdersJPanel$1
+userinterface.customer.CustomerOrdersJPanel$2

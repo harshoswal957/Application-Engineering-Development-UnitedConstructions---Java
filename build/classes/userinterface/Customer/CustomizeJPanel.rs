@@ -1,0 +1,13 @@
+userinterface.customer.CustomizeJPanel$12
+userinterface.customer.CustomizeJPanel
+userinterface.customer.CustomizeJPanel$1
+userinterface.customer.CustomizeJPanel$10
+userinterface.customer.CustomizeJPanel$2
+userinterface.customer.CustomizeJPanel$11
+userinterface.customer.CustomizeJPanel$3
+userinterface.customer.CustomizeJPanel$4
+userinterface.customer.CustomizeJPanel$5
+userinterface.customer.CustomizeJPanel$6
+userinterface.customer.CustomizeJPanel$7
+userinterface.customer.CustomizeJPanel$8
+userinterface.customer.CustomizeJPanel$9

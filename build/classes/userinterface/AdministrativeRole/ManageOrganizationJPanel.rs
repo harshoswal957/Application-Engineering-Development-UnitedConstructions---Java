@@ -1,0 +1,4 @@
+userinterface.administrativerole.ManageOrganizationJPanel$1
+userinterface.administrativerole.ManageOrganizationJPanel$3
+userinterface.administrativerole.ManageOrganizationJPanel
+userinterface.administrativerole.ManageOrganizationJPanel$2

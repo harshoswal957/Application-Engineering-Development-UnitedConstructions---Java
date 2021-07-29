@@ -1,0 +1,4 @@
+userinterface.customer.SignUpJPanel$1
+userinterface.customer.SignUpJPanel$3
+userinterface.customer.SignUpJPanel$2
+userinterface.customer.SignUpJPanel
