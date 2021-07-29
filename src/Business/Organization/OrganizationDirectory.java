@@ -35,6 +35,9 @@ public class OrganizationDirectory {
         } else if (type.getValue().equals(Type.Labour.getValue())) {
             organization = new LabourOrganization();
             organizationList.add(organization);
+        } else if (type.getValue().equals(Type.Reporting.getValue())) {
+            organization = new ReportingOrganization();
+            organizationList.add(organization);
         } else if (type.getValue().equals(Type.Inventory.getValue())) {
             organization = new InventoryOrganization();
             organizationList.add(organization);
@@ -46,6 +49,9 @@ public class OrganizationDirectory {
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Customer.getValue())) {
             organization = new CustomerOrganization();
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.EnergyRegulatoryCommission.getValue())) {
+            organization = new EnergyRegulatoryCommissionOrganization();
             organizationList.add(organization);
         }
         return organization;
