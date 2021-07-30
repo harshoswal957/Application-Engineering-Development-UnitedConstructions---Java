@@ -68,10 +68,13 @@ public class ReportingWorkAreaManagementJPanel extends javax.swing.JPanel {
 
         backJButton = new javax.swing.JButton();
         energySavingsjBtn = new javax.swing.JButton();
+        revenueJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         enterpriseLabel1 = new javax.swing.JLabel();
         orgValueLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
+        workRequestJButton = new javax.swing.JButton();
+        orgSizejButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -97,7 +100,17 @@ public class ReportingWorkAreaManagementJPanel extends javax.swing.JPanel {
                 energySavingsjBtnActionPerformed(evt);
             }
         });
-        add(energySavingsjBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 280, 80));
+        add(energySavingsjBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 280, 80));
+
+        revenueJButton.setBackground(new java.awt.Color(204, 204, 255));
+        revenueJButton.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 18)); // NOI18N
+        revenueJButton.setText("Revenue Estimates");
+        revenueJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                revenueJButtonActionPerformed(evt);
+            }
+        });
+        add(revenueJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 370, 210, 80));
 
         enterpriseLabel.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
         enterpriseLabel.setText("Enterprise :");
@@ -114,6 +127,26 @@ public class ReportingWorkAreaManagementJPanel extends javax.swing.JPanel {
         valueLabel.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 230, -1));
+
+        workRequestJButton.setBackground(new java.awt.Color(204, 204, 255));
+        workRequestJButton.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 18)); // NOI18N
+        workRequestJButton.setText("Work Requests");
+        workRequestJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                workRequestJButtonActionPerformed(evt);
+            }
+        });
+        add(workRequestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 260, 80));
+
+        orgSizejButton.setBackground(new java.awt.Color(204, 204, 255));
+        orgSizejButton.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 18)); // NOI18N
+        orgSizejButton.setText("Organization Size");
+        orgSizejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgSizejButtonActionPerformed(evt);
+            }
+        });
+        add(orgSizejButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, 270, 80));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel2.setText("Reporting Work Area Management");
@@ -137,6 +170,33 @@ public class ReportingWorkAreaManagementJPanel extends javax.swing.JPanel {
         logr.info("Apartment Energy Savings Button clicked");
     }//GEN-LAST:event_energySavingsjBtnActionPerformed
 
+    private void workRequestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workRequestJButtonActionPerformed
+
+        RegulatoryWorkRequestJPanel ojp = new RegulatoryWorkRequestJPanel(userProcessContainer,account,organization,enterprise, business);
+        userProcessContainer.add("RegulatoryWorkRequests", ojp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        logr.info("Work Requests Button clicked");
+    }//GEN-LAST:event_workRequestJButtonActionPerformed
+
+    private void orgSizejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgSizejButtonActionPerformed
+        OrganisationReportJPanel ojp = new OrganisationReportJPanel(userProcessContainer, mod, business);
+        userProcessContainer.add("OrganizationReportJPanel", ojp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        logr.info("Organization Size Button clicked");
+    }//GEN-LAST:event_orgSizejButtonActionPerformed
+
+    private void revenueJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revenueJButtonActionPerformed
+        // TODO add your handling code here:
+        RevenueReportJPanel rrjp = new RevenueReportJPanel(userProcessContainer, mod, business);
+        userProcessContainer.add("EnergyContentReportJPanel", rrjp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        logr.info("Revenue Estimates Button clicked");
+        //            JOptionPane.showMessageDialog(null, customizedRevenue, "Warning", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_revenueJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
@@ -145,7 +205,10 @@ public class ReportingWorkAreaManagementJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton orgSizejButton;
     private javax.swing.JLabel orgValueLabel;
+    private javax.swing.JButton revenueJButton;
     private javax.swing.JLabel valueLabel;
+    private javax.swing.JButton workRequestJButton;
     // End of variables declaration//GEN-END:variables
 }
