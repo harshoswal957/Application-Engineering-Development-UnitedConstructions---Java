@@ -171,7 +171,7 @@ public class ReportingWorkAreaManagementJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_energySavingsjBtnActionPerformed
 
     private void workRequestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workRequestJButtonActionPerformed
-
+       
         RegulatoryWorkRequestJPanel ojp = new RegulatoryWorkRequestJPanel(userProcessContainer,account,organization,enterprise, business);
         userProcessContainer.add("RegulatoryWorkRequests", ojp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -180,7 +180,7 @@ public class ReportingWorkAreaManagementJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_workRequestJButtonActionPerformed
 
     private void orgSizejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgSizejButtonActionPerformed
-        OrganisationReportJPanel ojp = new OrganisationReportJPanel(userProcessContainer, mod, business);
+         OrganisationReportJPanel ojp = new OrganisationReportJPanel(userProcessContainer, mod, business);
         userProcessContainer.add("OrganizationReportJPanel", ojp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
