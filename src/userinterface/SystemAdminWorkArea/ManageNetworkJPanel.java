@@ -9,6 +9,7 @@ import business.ecosystem.Ecosystem;
 import business.network.Network;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.logging.*;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +21,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Ecosystem system;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     /**
      * Creates new form ManageNetworkJPanel
@@ -59,7 +61,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -135,6 +137,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         network.setName(name);
 
         populateNetworkTable();
+        logr.info("Add Network Button clicked");
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

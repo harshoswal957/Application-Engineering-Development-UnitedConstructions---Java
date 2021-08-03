@@ -3,9 +3,47 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Harsh/Documents/GitHub/UnitedConstructionsINFO5100/src/Business/Organization/EnergyRegulatoryCommissionOrganization.java</file>
-            <file>file:/C:/Users/Harsh/Documents/GitHub/UnitedConstructionsINFO5100/src/userinterface/Reporting/ReportingWorkAreaManagementJPanel.java</file>
-            <file>file:/C:/Users/Harsh/Documents/GitHub/UnitedConstructionsINFO5100/src/userinterface/EnergyRegulatoryCommission/EnergyRegulatoryCommissionWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Customer/ViewOrderDetailsJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/InventoryRole/InventoryWorkAreaManagementJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/Business/WorkQueue/InventoryWorkRequest.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Reporting/ReportingWorkAreaManagementJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/EnergyRegulatoryCommission/EnergySavingsBarChart.jpeg</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/RealtorWorkArea/LabourWorkRequestsJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/LabourRole/LabourWorkRequestsJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/SystemAdminWorkArea/ManageEnterpriseAdminJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/Business/WorkQueue/SelfDesignedWorkRequest.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/RealtorWorkArea/RealtorStaffWorkAreaManagement.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/EnergyRegulatoryCommission/EnergyRegulatoryCommissionWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Customer/CustomizeJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Customer/SignUpJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Customer/BuyFurnishedApartmentJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/MainJFrame.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/AdministrativeRole/ManageOrganizationJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Reporting/EnergyContentReportJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/RealtorWorkArea/RealtorSelfDesignedOrdersWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Reporting/RevenueReportJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/ArchitectRole/ArchitectWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Customer/CustomerMainJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Customer/CustomerOrdersJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/SystemAdminWorkArea/ManageNetworkJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/AdministrativeRole/ManageUserAccountJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/ArchitectRole/ArchitectWorkAreaManagementJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/RealtorPropertyManager/RealtorPropertyManagerWorkAreaManagementJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Customer/ManageOrderJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/RealtorWorkArea/RealtorCompanySellRequestsJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/AdministrativeRole/ManagePersonJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/LabourRole/LabourWorkAreaManangementJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/SystemAdminWorkArea/ManageEnterpriseJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/SystemAdminWorkArea/SystemAdminNavigationJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Reporting/RegulatoryWorkRequestJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/AdministrativeRole/AdminWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/RealtorPropertyManager/RealtorPropertyManagerWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/EnergyRegulatoryCommission/ReportProcess.csv</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/RealtorWorkArea/RealtorOrdersWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/Reporting/OrganisationReportJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/InventoryRole/InventoryWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/LabourRole/InventoryRequestsJPanel.java</file>
+            <file>file:/C:/Users/Harsh/Documents/NetBeansProjects/UnitedConstructionProject/src/userinterface/LabourRole/RequestsFromInventoryWorkRequestJPanel.java</file>
         </group>
     </open-files>
 </project-private>

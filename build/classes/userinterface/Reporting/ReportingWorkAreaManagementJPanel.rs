@@ -1,0 +1,6 @@
+userinterface.reporting.ReportingWorkAreaManagementJPanel$2
+userinterface.reporting.ReportingWorkAreaManagementJPanel$1
+userinterface.reporting.ReportingWorkAreaManagementJPanel$4
+userinterface.reporting.ReportingWorkAreaManagementJPanel$3
+userinterface.reporting.ReportingWorkAreaManagementJPanel
+userinterface.reporting.ReportingWorkAreaManagementJPanel$5

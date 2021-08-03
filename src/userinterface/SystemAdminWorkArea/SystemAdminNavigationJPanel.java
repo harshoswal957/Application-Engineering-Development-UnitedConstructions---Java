@@ -11,6 +11,7 @@ import business.network.Network;
 import business.organization.Organization;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.logging.*;
 import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -26,14 +27,16 @@ public class SystemAdminNavigationJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public SystemAdminNavigationJPanel(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
-
+        
         this.userProcessContainer = userProcessContainer;
         this.system = system;
 
         populateTree();
+        logr.info("System Admin Work Area");
     }
 
     public void populateTree() {
@@ -98,10 +101,11 @@ public class SystemAdminNavigationJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTree = new javax.swing.JTree();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         selectedNodeJLabel = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -152,6 +156,9 @@ public class SystemAdminNavigationJPanel extends javax.swing.JPanel {
         jLabel1.setText("System Admin Work Area Management");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sysadmin.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 480, 120));
+
         jLabel3.setFont(new java.awt.Font("ITF Devanagari Marathi", 1, 14)); // NOI18N
         jLabel3.setText("Selected Node:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 90, -1));
@@ -166,6 +173,7 @@ public class SystemAdminNavigationJPanel extends javax.swing.JPanel {
         userProcessContainer.add("manageEnterpriseAdminJPanel", manageEnterpriseAdminJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        logr.info("Manage Enterprise Admin Button clicked");
     }//GEN-LAST:event_enterpriseAdminJButtonActionPerformed
 
     private void manageNetworkJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageNetworkJButtonActionPerformed
@@ -173,6 +181,7 @@ public class SystemAdminNavigationJPanel extends javax.swing.JPanel {
         userProcessContainer.add("manageNetworkJPanel", manageNetworkJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        logr.info("Manage Network Button clicked");
     }//GEN-LAST:event_manageNetworkJButtonActionPerformed
 
     private void JTreevalueChangedAction(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_JTreevalueChangedAction
@@ -188,6 +197,7 @@ public class SystemAdminNavigationJPanel extends javax.swing.JPanel {
         userProcessContainer.add("manageEnterpriseJPanel", manageEnterpriseJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        logr.info("Manage Enterprise Button clicked");
     }//GEN-LAST:event_manageEnterpriseJButtonActionPerformed
 
 
@@ -195,6 +205,7 @@ public class SystemAdminNavigationJPanel extends javax.swing.JPanel {
     private javax.swing.JTree JTree;
     private javax.swing.JButton enterpriseAdminJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton manageEnterpriseJButton;

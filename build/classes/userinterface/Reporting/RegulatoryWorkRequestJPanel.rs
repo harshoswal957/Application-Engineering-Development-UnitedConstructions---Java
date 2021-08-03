@@ -1,0 +1,6 @@
+userinterface.reporting.RegulatoryWorkRequestJPanel$3
+userinterface.reporting.RegulatoryWorkRequestJPanel$2
+userinterface.reporting.RegulatoryWorkRequestJPanel$1
+userinterface.reporting.RegulatoryWorkRequestJPanel
+userinterface.reporting.RegulatoryWorkRequestJPanel$5
+userinterface.reporting.RegulatoryWorkRequestJPanel$4

@@ -13,10 +13,14 @@ import business.organization.Organization;
 import business.useraccount.UserAccount;
 import business.useraccount.UserAccountDirectory;
 import java.awt.CardLayout;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import userinterface.customer.SignUpJPanel;
+import java.util.logging.*;
 
 /**
  *
@@ -26,17 +30,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private Ecosystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-   
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     /**
      * Creates new form MainJFrameNew
      */
     public MainJFrame() {
         initComponents();
-       
         system = dB4OUtil.retrieveSystem();
         this.setExtendedState(MAXIMIZED_BOTH);
-
+        logr.info("MainJFrame");
     }
 
     /**
@@ -56,14 +59,18 @@ public class MainJFrame extends javax.swing.JFrame {
         passwordField = new javax.swing.JPasswordField();
         signInJButton = new javax.swing.JButton();
         signOutJButton = new javax.swing.JButton();
+        customerJButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         userProcessContainer = new javax.swing.JPanel();
+        unitedLogoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jSplitPane1.setMinimumSize(new java.awt.Dimension(3162, 517));
 
-        controlJPanel.setBackground(new java.awt.Color(204, 204, 204));
+        controlJPanel.setBackground(new java.awt.Color(0, 102, 102));
         controlJPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 51), 3));
         controlJPanel.setForeground(new java.awt.Color(255, 255, 255));
         controlJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -94,7 +101,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         controlJPanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 130, 20));
 
-        signInJButton.setBackground(new java.awt.Color(255, 255, 255));
+        signInJButton.setBackground(new java.awt.Color(51, 255, 51));
         signInJButton.setFont(new java.awt.Font("Palatino Linotype", 0, 12)); // NOI18N
         signInJButton.setText("Sign In");
         signInJButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -106,7 +113,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         controlJPanel.add(signInJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 90, 30));
 
-        signOutJButton.setBackground(new java.awt.Color(255, 255, 255));
+        signOutJButton.setBackground(new java.awt.Color(255, 0, 0));
         signOutJButton.setFont(new java.awt.Font("Palatino Linotype", 0, 12)); // NOI18N
         signOutJButton.setText("Sign Out");
         signOutJButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -119,16 +126,42 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         controlJPanel.add(signOutJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 100, 30));
 
+        customerJButton.setBackground(new java.awt.Color(236, 255, 234));
+        customerJButton.setFont(new java.awt.Font("Palatino Linotype", 0, 12)); // NOI18N
+        customerJButton.setText("Sign Up");
+        customerJButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        customerJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerJButtonActionPerformed(evt);
+            }
+        });
+        controlJPanel.add(customerJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 110, 30));
+
+        jLabel3.setFont(new java.awt.Font("Palatino Linotype", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("United Constructions");
+        controlJPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 360, 60));
+
         jLabel4.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Admin Login");
         controlJPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, 20));
+
+        jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("New Customer Registration");
+        controlJPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 160, -1));
 
         jSplitPane1.setTopComponent(controlJPanel);
 
         userProcessContainer.setBackground(new java.awt.Color(236, 255, 234));
         userProcessContainer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         userProcessContainer.setLayout(new java.awt.CardLayout());
+
+        unitedLogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/United-Logo.jpg"))); // NOI18N
+        unitedLogoLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        userProcessContainer.add(unitedLogoLabel, "card2");
+
         jSplitPane1.setRightComponent(userProcessContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,6 +178,16 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void customerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerJButtonActionPerformed
+        // TODO add your handling code here:
+        UserAccountDirectory uac = system.getUserAccountDirectory();
+        SignUpJPanel sujp = new SignUpJPanel(userProcessContainer, uac);
+        userProcessContainer.add("SignUpJPanel", sujp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        logr.info("Sign Up Button clicked");
+    }//GEN-LAST:event_customerJButtonActionPerformed
+
     private void signOutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutJButtonActionPerformed
         signOutJButton.setEnabled(false);
         userNameTextField.setEnabled(true);
@@ -156,32 +199,39 @@ public class MainJFrame extends javax.swing.JFrame {
 
         userProcessContainer.removeAll();
 
-
+        userProcessContainer.add("blank", unitedLogoLabel);
 
         CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
         cardLayout.next(userProcessContainer);
         dB4OUtil.storeSystem(system);
+        logr.info("Sign Out Button clicked");
     }//GEN-LAST:event_signOutJButtonActionPerformed
 
     private void signInJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInJButtonActionPerformed
-
+        
+        //Get username
         String userName = userNameTextField.getText();
+        //Get Password
         char[] passwordCharArray = passwordField.getPassword();
         String password = String.valueOf(passwordCharArray);
+        //Step1: Check in the system user account directory if you have the user
         UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
+        //System.out.println(userAccount.getUsername() + userAccount.getPassword());
         Enterprise inEnterprise = null;
         Organization inOrganization = null;
         if (userAccount == null) {
-            //check each enterprise
+            //Step2: Go inside each network to check each enterprise
             for (Network network : system.getNetworkList()) {
+                //Step 2-a: Check against each enterprise
                 for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                     userAccount = enterprise.getUserAccountDirectory().authenticateUser(userName, password);
                     if (userAccount == null) {
-                        //check each organization inside the enterprise
+                        //Step3: Check against each organization inside that enterprise
                         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
                             userAccount = organization.getUserAccountDirectory().authenticateUser(userName, password);
                             if (userAccount != null)
                             {
+                                // System.out.println(organization.getName() + enterprise.getName());
                                 inEnterprise = enterprise;
                                 inOrganization = organization;
                                 break;
@@ -213,6 +263,7 @@ public class MainJFrame extends javax.swing.JFrame {
         signOutJButton.setEnabled(true);
         userNameTextField.setEnabled(false);
         passwordField.setEnabled(false);
+        logr.info("Sign In Button clicked");
     }//GEN-LAST:event_signInJButtonActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
@@ -261,13 +312,17 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel controlJPanel;
+    private javax.swing.JButton customerJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton signInJButton;
     private javax.swing.JButton signOutJButton;
+    private javax.swing.JLabel unitedLogoLabel;
     private javax.swing.JTextField userNameTextField;
     private javax.swing.JPanel userProcessContainer;
     // End of variables declaration//GEN-END:variables

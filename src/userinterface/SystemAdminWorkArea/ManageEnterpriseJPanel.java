@@ -13,6 +13,7 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
 
 /**
  *
@@ -22,6 +23,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Ecosystem system;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     /**
      * Creates new form ManageEnterpriseJPanel
@@ -54,8 +56,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -135,6 +138,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel4.setText("Manage Enterprise");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/enterprise.png"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 250, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) enterpriseJTable.getModel();
@@ -181,6 +187,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
 
         populateTable();
+        logr.info("Submit Button clicked");
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -207,6 +214,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox networkJComboBox;

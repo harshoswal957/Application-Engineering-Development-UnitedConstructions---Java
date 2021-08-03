@@ -13,8 +13,10 @@ import business.role.AdminRole;
 import business.useraccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
 
 /**
  *
@@ -27,6 +29,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Ecosystem system;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ManageEnterpriseAdminJPanel(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
@@ -35,7 +38,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         populateTable();
         populateNetworkComboBox();
-
     }
 
     /**
@@ -63,7 +65,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -226,10 +228,18 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         String password = String.valueOf(passwordJPasswordField.getPassword());
         String name = nameJTextField.getText();
 
-        Person employee = enterprise.getEmployeeDirectory().createPerson(name);
+        if (name.trim().isEmpty() || username.trim().isEmpty() || password.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Invalid name, username or password", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else {
+            Person employee = enterprise.getEmployeeDirectory().createPerson(name);
 
-        UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AdminRole());
-        populateTable();
+            UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AdminRole());
+            populateTable();
+            JOptionPane.showMessageDialog(null, "Enterprise admin created sucessfully", "Warning", JOptionPane.WARNING_MESSAGE);
+            logr.info("Submit Button clicked");
+        }
+
 
     }//GEN-LAST:event_submitJButtonActionPerformed
 
