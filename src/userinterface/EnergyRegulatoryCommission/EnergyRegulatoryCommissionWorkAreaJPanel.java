@@ -137,7 +137,7 @@ public class EnergyRegulatoryCommissionWorkAreaJPanel extends javax.swing.JPanel
         for (Network network : business.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 if (enterprise instanceof UnitedConstructionEnterprise) {
-                    for (Organization organization : enterprise.getOrganiztionDirectory().getOrganizationList()) {
+                    for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
                         if (organization instanceof ReportingOrganization) {
 
                             energySaving = ((ReportingOrganization) organization).getReport().getTotalEnergySaving();

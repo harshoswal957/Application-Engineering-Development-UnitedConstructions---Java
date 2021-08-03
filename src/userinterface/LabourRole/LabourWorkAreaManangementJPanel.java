@@ -12,6 +12,9 @@ import business.organization.Organization;
 import business.useraccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import java.util.logging.*;
+
+
 
 /**
  *
@@ -27,6 +30,7 @@ public class LabourWorkAreaManangementJPanel extends javax.swing.JPanel {
     private LabourOrganization organization;
     private UserAccount userAccount;
     private Ecosystem business;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public LabourWorkAreaManangementJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
         initComponents();
@@ -38,6 +42,8 @@ public class LabourWorkAreaManangementJPanel extends javax.swing.JPanel {
 
         valueLabel.setText(enterprise.getName());
         orgValueLabel.setText(organization.getName());
+        
+        logr.info("Entered the Labourer UI");
 
     }
 
@@ -57,9 +63,10 @@ public class LabourWorkAreaManangementJPanel extends javax.swing.JPanel {
         orgValueLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         inventoryWorkJButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -109,6 +116,9 @@ public class LabourWorkAreaManangementJPanel extends javax.swing.JPanel {
         });
         add(inventoryWorkJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, 350, 140));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/labour.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 260, -1, -1));
+
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel2.setText("Labourer Work Area Management");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, -1));
@@ -143,6 +153,7 @@ public class LabourWorkAreaManangementJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JButton inventoryWorkJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel orgValueLabel;
     private javax.swing.JLabel valueLabel;

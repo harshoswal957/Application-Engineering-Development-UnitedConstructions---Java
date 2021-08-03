@@ -19,6 +19,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
 
 /**
  *
@@ -34,6 +35,7 @@ public class LabourWorkRequestsJPanel extends javax.swing.JPanel {
     private LabourOrganization organization;
     private UserAccount userAccount;
     private Ecosystem business;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public LabourWorkRequestsJPanel(JPanel userProcessContainer, UserAccount userAccount, Organization organization, Enterprise enterprise, Ecosystem business) {
         initComponents();
@@ -93,7 +95,7 @@ public class LabourWorkRequestsJPanel extends javax.swing.JPanel {
         acceptReqJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -241,7 +243,7 @@ public class LabourWorkRequestsJPanel extends javax.swing.JPanel {
 
         JOptionPane.showMessageDialog(null, "Apartment ready for move-in", "Info", JOptionPane.INFORMATION_MESSAGE);
 
-
+        logr.info("Mark Apartment furnished Button clicked");
     }//GEN-LAST:event_apartmentFurnishedJButtonActionPerformed
 
     private void requestInventoryJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestInventoryJButtonActionPerformed
