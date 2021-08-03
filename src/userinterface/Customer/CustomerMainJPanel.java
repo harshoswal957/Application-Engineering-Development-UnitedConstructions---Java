@@ -12,6 +12,7 @@ import business.organization.Organization;
 import business.useraccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import java.util.logging.*;
 
 /**
  *
@@ -27,6 +28,7 @@ public class CustomerMainJPanel extends javax.swing.JPanel {
     private UserAccount account;
     private Enterprise enterprise;
     private Ecosystem business;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public CustomerMainJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
         initComponents();
@@ -36,7 +38,7 @@ public class CustomerMainJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.business = business;
         customerTextField.setText(account.getUsername());
-
+        logr.info("Entered the Customer UI");
     }
 
     /**
@@ -50,12 +52,14 @@ public class CustomerMainJPanel extends javax.swing.JPanel {
 
         customizejBtn = new javax.swing.JButton();
         buyFurnishedAptjBtn = new javax.swing.JButton();
+        customerOrdersJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
         customerTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -78,6 +82,16 @@ public class CustomerMainJPanel extends javax.swing.JPanel {
             }
         });
         add(buyFurnishedAptjBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 270, 120));
+
+        customerOrdersJButton.setBackground(new java.awt.Color(204, 204, 255));
+        customerOrdersJButton.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
+        customerOrdersJButton.setText("Requested Order");
+        customerOrdersJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerOrdersJButtonActionPerformed(evt);
+            }
+        });
+        add(customerOrdersJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 330, 270, 120));
 
         backJButton.setBackground(new java.awt.Color(204, 204, 255));
         backJButton.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
@@ -104,11 +118,25 @@ public class CustomerMainJPanel extends javax.swing.JPanel {
         jLabel1.setText("WELCOME CUSTOMER");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/customer.jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 230, 420, 290));
+
         jLabel3.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
         jLabel3.setText("Welcome:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+
+    private void customizejBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customizejBtnActionPerformed
+
+        // TODO add your handling code here:
+        CustomizeJPanel cjp = new CustomizeJPanel(userProcessContainer, customerOrganization, account, enterprise, business);
+        userProcessContainer.add("CustomizeJPanel", cjp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+
+    }//GEN-LAST:event_customizejBtnActionPerformed
 
     private void buyFurnishedAptjBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyFurnishedAptjBtnActionPerformed
         //  TODO add your handling code here:
@@ -128,6 +156,15 @@ public class CustomerMainJPanel extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_buyFurnishedAptjBtnActionPerformed
 
+    private void customerOrdersJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerOrdersJButtonActionPerformed
+        //  TODO add your handling code here:
+        CustomerOrdersJPanel cjp = new CustomerOrdersJPanel(userProcessContainer, account, customerOrganization, enterprise, business);
+        userProcessContainer.add("CustomerOrdersJPanel", cjp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+    }//GEN-LAST:event_customerOrdersJButtonActionPerformed
+
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         userProcessContainer.remove(this);
 
@@ -139,23 +176,15 @@ public class CustomerMainJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_customerTextFieldActionPerformed
 
-    private void customizejBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customizejBtnActionPerformed
-
-        // TODO add your handling code here:
-        CustomizeJPanel cjp = new CustomizeJPanel(userProcessContainer, customerOrganization, account, enterprise, business);
-        userProcessContainer.add("CustomizeJPanel", cjp);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-
-    }//GEN-LAST:event_customizejBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JButton buyFurnishedAptjBtn;
+    private javax.swing.JButton customerOrdersJButton;
     private javax.swing.JTextField customerTextField;
     private javax.swing.JButton customizejBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

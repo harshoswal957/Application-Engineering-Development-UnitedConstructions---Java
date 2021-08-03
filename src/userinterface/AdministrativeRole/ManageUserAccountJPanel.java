@@ -65,7 +65,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         createUserJButton = new javax.swing.JButton();
         passwordJTextField = new javax.swing.JPasswordField();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

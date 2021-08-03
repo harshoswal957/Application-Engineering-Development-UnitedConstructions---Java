@@ -58,7 +58,7 @@ public class ManagePersonJPanel extends javax.swing.JPanel {
         nameJTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setFocusCycleRoot(true);
         setMinimumSize(new java.awt.Dimension(1650, 880));
@@ -140,7 +140,7 @@ public class ManagePersonJPanel extends javax.swing.JPanel {
                 addJButtonActionPerformed(evt);
             }
         });
-        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 150, 30));
+        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, 30));
 
         backJButton.setBackground(new java.awt.Color(204, 204, 255));
         backJButton.setFont(new java.awt.Font("Palatino Linotype", 0, 18)); // NOI18N

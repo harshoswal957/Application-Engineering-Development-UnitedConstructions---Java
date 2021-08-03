@@ -21,6 +21,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
 
 /**
  *
@@ -38,6 +39,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private Enterprise enterprise;
     private Ecosystem business;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public ManageOrderJPanel(JPanel userProcessContainer, MasterOrderList mod, SelfDesignedOrder order, Organization organization, UserAccount userAccount, Enterprise enterprise, Ecosystem business) {
         initComponents();
@@ -91,7 +93,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -194,21 +196,6 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
-        populateTable();
-    }//GEN-LAST:event_refreshJButtonActionPerformed
-
-    private void customerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerTextFieldActionPerformed
-
-    }//GEN-LAST:event_customerTextFieldActionPerformed
-
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
-
     private void viewDetailjBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailjBtnActionPerformed
         // TODO add your handling code here:
 
@@ -222,19 +209,9 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         userProcessContainer.add("VerifyOrderJPanel", vjp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_viewDetailjBtnActionPerformed
 
-    private void deletejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletejButtonActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = customerCartjTable.getSelectedRow();
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else {
-            SelfDesignedOrderItem oi = (SelfDesignedOrderItem) customerCartjTable.getValueAt(selectedRow, 0);
-            order.removeOrderItem(oi);
-            populateTable();
-        }
-    }//GEN-LAST:event_deletejButtonActionPerformed
+
+    }//GEN-LAST:event_viewDetailjBtnActionPerformed
 
     private void placeOrderjBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeOrderjBtnActionPerformed
 
@@ -265,8 +242,36 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
             }
         }
         JOptionPane.showMessageDialog(null, "Order Placed Successfully", "Information!!", JOptionPane.WARNING_MESSAGE);
+        logr.info("Place Order Button clicked");
     }//GEN-LAST:event_placeOrderjBtnActionPerformed
 
+
+    private void deletejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletejButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = customerCartjTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            SelfDesignedOrderItem oi = (SelfDesignedOrderItem) customerCartjTable.getValueAt(selectedRow, 0);
+            order.removeOrderItem(oi);
+            populateTable();
+        }
+    }//GEN-LAST:event_deletejButtonActionPerformed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
+
+    private void customerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerTextFieldActionPerformed
+
+    }//GEN-LAST:event_customerTextFieldActionPerformed
+
+    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
+        populateTable();
+    }//GEN-LAST:event_refreshJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

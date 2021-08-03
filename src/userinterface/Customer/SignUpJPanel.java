@@ -13,6 +13,7 @@ import business.useraccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.util.logging.*;
 
 /**
  *
@@ -25,6 +26,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     UserAccountDirectory userAccountDirectory;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public SignUpJPanel(JPanel userProcessContainer, UserAccountDirectory userAccountDirectory) {
         initComponents();
@@ -52,7 +54,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         passwordField = new javax.swing.JPasswordField();
         confirmPasswordField = new javax.swing.JPasswordField();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -67,7 +69,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sign-Up.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 1130, 190));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 1120, 190));
 
         jLabel2.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
         jLabel2.setText("User Name");
@@ -153,8 +155,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
             ua.setPassword(pwd);
             Role role = new CustomerRole();
 
-            //verificationLabel1.setText("");
-            //verificationLabel.setText("");
+         
             usernameTextField.setText("");
             passwordField.setText("");
             confirmPasswordField.setText("");
@@ -164,6 +165,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, username + " " + "user created Successfully! ", "Information", JOptionPane.INFORMATION_MESSAGE);
 
         }
+        logr.info("New customer signed up");
     }//GEN-LAST:event_submitJButtonActionPerformed
 
 

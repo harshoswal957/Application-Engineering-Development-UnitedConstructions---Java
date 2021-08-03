@@ -84,7 +84,7 @@ public class CustomizeJPanel extends javax.swing.JPanel {
         addJBtn = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -231,6 +231,16 @@ public class CustomizeJPanel extends javax.swing.JPanel {
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 110, 50));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void nextJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextJButtonActionPerformed
+        
+        ManageOrderJPanel vjp = new ManageOrderJPanel(userProcessContainer, mod, order, customerOrganization, account, enterprise, business);
+        userProcessContainer.add("ManageOrderJPanel", vjp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+
+    }//GEN-LAST:event_nextJButtonActionPerformed
+
     private void powerTypejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powerTypejComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_powerTypejComboBoxActionPerformed
@@ -238,6 +248,135 @@ public class CustomizeJPanel extends javax.swing.JPanel {
     private void interiorThemeThemejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interiorThemeThemejComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_interiorThemeThemejComboBoxActionPerformed
+
+    private void addJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJBtnActionPerformed
+        
+        for (Network network : business.getNetworkList()) {
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enterprise instanceof CustomerSupportEnterprise) {
+                    for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                        if (organization instanceof RealtorOrganization) {
+                            mod = ((RealtorOrganization) organization).getMod();
+                        }                        
+                        
+                    }
+                }
+            }
+        }
+
+        // add customised order item to the order
+        count++;
+        SelfDesignedOrderItem oi = order.addCustomizedOrderItem();
+        order.setCustomer(account.getEmployee());
+        order.setOrderNumber(count);
+        
+        float price = 0;
+        oi.getCustomizeProduct().setApartmentType(apartmentTypejComboBox.getSelectedItem().toString());
+        oi.getCustomizeProduct().setPowerType(powerTypejComboBox.getSelectedItem().toString());
+        oi.getCustomizeProduct().setWindow(windowjComboBox.getSelectedItem().toString());
+        oi.getCustomizeProduct().setFlooring(flooringjComboBox.getSelectedItem().toString());
+        oi.getCustomizeProduct().setLightFixtureType(lightFixtureTypejComboBox.getSelectedItem().toString());
+        oi.getCustomizeProduct().setHousingComplexType(housingComplexTypejComboBox.getSelectedItem().toString());
+        oi.getCustomizeProduct().setSpaceHeating(spaceHeatingjComboBox.getSelectedItem().toString());
+        oi.getCustomizeProduct().setInteriorThemeType(interiorThemeTypejComboBox.getSelectedItem().toString());
+        oi.getCustomizeProduct().setFurnitureWoodType(furnitureWoodjComboBox.getSelectedItem().toString());
+        
+        
+
+        //Light price
+        if (oi.getCustomizeProduct().getLightFixtureType().equalsIgnoreCase("LED")) {
+            price = price + 6500;
+        } else if (oi.getCustomizeProduct().getLightFixtureType().equalsIgnoreCase("CFL")) {
+            price = price + 1000;
+            
+        }  else if (oi.getCustomizeProduct().getLightFixtureType().equalsIgnoreCase("Incandescent Light Bulbs")) {
+            price = price + 500;
+            
+        }
+        
+        //Power price
+        if (oi.getCustomizeProduct().getPowerType().equalsIgnoreCase("Electricity")) {
+            price = price + 4000;            
+        } else if (oi.getCustomizeProduct().getPowerType().equalsIgnoreCase("Solar")) {
+            price = price + 5500;            
+        } else if (oi.getCustomizeProduct().getPowerType().equalsIgnoreCase("Hybrid energy")) {
+            price = price + 7000;            
+        }
+
+        //Window price   
+        if (oi.getCustomizeProduct().getWindow().equalsIgnoreCase("Single Glass")) {
+            price = price + 4000;
+        } else if (oi.getCustomizeProduct().getWindow().equalsIgnoreCase("Double Pane")) {
+            price = price + 7000;
+        } else if (oi.getCustomizeProduct().getWindow().equalsIgnoreCase("Low E4")) {
+            price = price + 9000;
+        }
+
+        //Floor price
+        if (oi.getCustomizeProduct().getFlooring().equalsIgnoreCase("Wooden")) {
+            price = price + 5000;
+        } else if (oi.getCustomizeProduct().getFlooring().equalsIgnoreCase("Marble")) {
+            price = price + 9500;
+        } else if (oi.getCustomizeProduct().getFlooring().equalsIgnoreCase("Ceramic Tiles")) {
+            price = price + 3000;
+        }
+
+        //Space Heating price        
+        if (oi.getCustomizeProduct().getSpaceHeating().equalsIgnoreCase("Electricity")) {
+            price = price + 1500;
+        } else if (oi.getCustomizeProduct().getSpaceHeating().equalsIgnoreCase("Gas-Fired")) {
+            price = price + 4000;
+        } else if (oi.getCustomizeProduct().getSpaceHeating().equalsIgnoreCase("Wood-Burning")) {
+            price = price + 1900;
+        } else if (oi.getCustomizeProduct().getSpaceHeating().equalsIgnoreCase("Boiler")) {
+            price = price + 4000;         
+        }
+        
+        //Housing Complex price
+        if (oi.getCustomizeProduct().getHousingComplexType().equalsIgnoreCase("Avalon Residences")) {
+            price = price + 1000;
+        } else if (oi.getCustomizeProduct().getHousingComplexType().equalsIgnoreCase("Windsor at Oak Grove")) {
+            price = price + 2000;
+        } else if (oi.getCustomizeProduct().getHousingComplexType().equalsIgnoreCase("Burbank Apartments")) {
+            price = price + 3000;
+        } else if (oi.getCustomizeProduct().getHousingComplexType().equalsIgnoreCase("Church Park Luxury Apartments")) {
+            price = price + 4000;
+        }
+        
+        //Wood Furniture pricing
+        if (oi.getCustomizeProduct().getFurnitureWoodType().equalsIgnoreCase("Oak")) {
+            price = price + 5000;
+        } else if (oi.getCustomizeProduct().getFurnitureWoodType().equalsIgnoreCase("Maple")) {
+            price = price + 6000;
+        } else if (oi.getCustomizeProduct().getFurnitureWoodType().equalsIgnoreCase("Redwood")) {
+            price = price + 7000;
+        }
+
+        //Interior Theme pricing
+        if (oi.getCustomizeProduct().getInteriorThemeType().equalsIgnoreCase("Vintage")) {
+            price = price + 500;
+        } else if (oi.getCustomizeProduct().getInteriorThemeType().equalsIgnoreCase("Modern")) {
+            price = price + 800;
+        } else if (oi.getCustomizeProduct().getInteriorThemeType().equalsIgnoreCase("Contemporary")) {
+            price = price + 1000;
+        } else if (oi.getCustomizeProduct().getInteriorThemeType().equalsIgnoreCase("Bohemian")) {
+            price = price + 1200;
+        }
+        
+        //Apartment Type pricing
+        if (oi.getCustomizeProduct().getApartmentType().equalsIgnoreCase("Studio")) {
+            price = price + 200000;
+        } else if (oi.getCustomizeProduct().getApartmentType().equalsIgnoreCase("2BHK")) {
+            price = 2 * price + 500000;
+        } else {
+            price = 3 * price + 700000;
+        }
+        
+        oi.getCustomizeProduct().setPrice(price);
+        JOptionPane.showMessageDialog(null, "Your house customization has been added to your cart", "Cart Info", JOptionPane.INFORMATION_MESSAGE);
+
+        
+    }//GEN-LAST:event_addJBtnActionPerformed
 
     private void apartmentTypejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apartmentTypejComboBoxActionPerformed
         // TODO add your handling code here:
@@ -277,141 +416,6 @@ public class CustomizeJPanel extends javax.swing.JPanel {
     private void interiorThemeTypejComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_interiorThemeTypejComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_interiorThemeTypejComboBoxActionPerformed
-
-    private void addJBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJBtnActionPerformed
-
-        for (Network network : business.getNetworkList()) {
-            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                if (enterprise instanceof CustomerSupportEnterprise) {
-                    for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                        if (organization instanceof RealtorOrganization) {
-                            mod = ((RealtorOrganization) organization).getMod();
-                        }
-
-                    }
-                }
-            }
-        }
-
-        // add customised order item to the order
-        count++;
-        SelfDesignedOrderItem oi = order.addCustomizedOrderItem();
-        order.setCustomer(account.getEmployee());
-        order.setOrderNumber(count);
-
-        float price = 0;
-        oi.getCustomizeProduct().setApartmentType(apartmentTypejComboBox.getSelectedItem().toString());
-        oi.getCustomizeProduct().setPowerType(powerTypejComboBox.getSelectedItem().toString());
-        oi.getCustomizeProduct().setWindow(windowjComboBox.getSelectedItem().toString());
-        oi.getCustomizeProduct().setFlooring(flooringjComboBox.getSelectedItem().toString());
-        oi.getCustomizeProduct().setLightFixtureType(lightFixtureTypejComboBox.getSelectedItem().toString());
-        oi.getCustomizeProduct().setHousingComplexType(housingComplexTypejComboBox.getSelectedItem().toString());
-        oi.getCustomizeProduct().setSpaceHeating(spaceHeatingjComboBox.getSelectedItem().toString());
-        oi.getCustomizeProduct().setInteriorThemeType(interiorThemeTypejComboBox.getSelectedItem().toString());
-        oi.getCustomizeProduct().setFurnitureWoodType(furnitureWoodjComboBox.getSelectedItem().toString());
-
-        //Light price
-        if (oi.getCustomizeProduct().getLightFixtureType().equalsIgnoreCase("LED")) {
-            price = price + 6500;
-        } else if (oi.getCustomizeProduct().getLightFixtureType().equalsIgnoreCase("CFL")) {
-            price = price + 1000;
-
-        }  else if (oi.getCustomizeProduct().getLightFixtureType().equalsIgnoreCase("Incandescent Light Bulbs")) {
-            price = price + 500;
-
-        }
-
-        //Power price
-        if (oi.getCustomizeProduct().getPowerType().equalsIgnoreCase("Electricity")) {
-            price = price + 4000;
-        } else if (oi.getCustomizeProduct().getPowerType().equalsIgnoreCase("Solar")) {
-            price = price + 5500;
-        } else if (oi.getCustomizeProduct().getPowerType().equalsIgnoreCase("Hybrid energy")) {
-            price = price + 7000;
-        }
-
-        //Window price
-        if (oi.getCustomizeProduct().getWindow().equalsIgnoreCase("Single Glass")) {
-            price = price + 4000;
-        } else if (oi.getCustomizeProduct().getWindow().equalsIgnoreCase("Double Pane")) {
-            price = price + 7000;
-        } else if (oi.getCustomizeProduct().getWindow().equalsIgnoreCase("Low E4")) {
-            price = price + 9000;
-        }
-
-        //Floor price
-        if (oi.getCustomizeProduct().getFlooring().equalsIgnoreCase("Wooden")) {
-            price = price + 5000;
-        } else if (oi.getCustomizeProduct().getFlooring().equalsIgnoreCase("Marble")) {
-            price = price + 9500;
-        } else if (oi.getCustomizeProduct().getFlooring().equalsIgnoreCase("Ceramic Tiles")) {
-            price = price + 3000;
-        }
-
-        //Space Heating price
-        if (oi.getCustomizeProduct().getSpaceHeating().equalsIgnoreCase("Electricity")) {
-            price = price + 1500;
-        } else if (oi.getCustomizeProduct().getSpaceHeating().equalsIgnoreCase("Gas-Fired")) {
-            price = price + 4000;
-        } else if (oi.getCustomizeProduct().getSpaceHeating().equalsIgnoreCase("Wood-Burning")) {
-            price = price + 1900;
-        } else if (oi.getCustomizeProduct().getSpaceHeating().equalsIgnoreCase("Boiler")) {
-            price = price + 4000;
-        }
-
-        //Housing Complex price
-        if (oi.getCustomizeProduct().getHousingComplexType().equalsIgnoreCase("Avalon Residences")) {
-            price = price + 1000;
-        } else if (oi.getCustomizeProduct().getHousingComplexType().equalsIgnoreCase("Windsor at Oak Grove")) {
-            price = price + 2000;
-        } else if (oi.getCustomizeProduct().getHousingComplexType().equalsIgnoreCase("Burbank Apartments")) {
-            price = price + 3000;
-        } else if (oi.getCustomizeProduct().getHousingComplexType().equalsIgnoreCase("Church Park Luxury Apartments")) {
-            price = price + 4000;
-        }
-
-        //Wood Furniture pricing
-        if (oi.getCustomizeProduct().getFurnitureWoodType().equalsIgnoreCase("Oak")) {
-            price = price + 5000;
-        } else if (oi.getCustomizeProduct().getFurnitureWoodType().equalsIgnoreCase("Maple")) {
-            price = price + 6000;
-        } else if (oi.getCustomizeProduct().getFurnitureWoodType().equalsIgnoreCase("Redwood")) {
-            price = price + 7000;
-        }
-
-        //Interior Theme pricing
-        if (oi.getCustomizeProduct().getInteriorThemeType().equalsIgnoreCase("Vintage")) {
-            price = price + 500;
-        } else if (oi.getCustomizeProduct().getInteriorThemeType().equalsIgnoreCase("Modern")) {
-            price = price + 800;
-        } else if (oi.getCustomizeProduct().getInteriorThemeType().equalsIgnoreCase("Contemporary")) {
-            price = price + 1000;
-        } else if (oi.getCustomizeProduct().getInteriorThemeType().equalsIgnoreCase("Bohemian")) {
-            price = price + 1200;
-        }
-
-        //Apartment Type pricing
-        if (oi.getCustomizeProduct().getApartmentType().equalsIgnoreCase("Studio")) {
-            price = price + 200000;
-        } else if (oi.getCustomizeProduct().getApartmentType().equalsIgnoreCase("2BHK")) {
-            price = 2 * price + 500000;
-        } else {
-            price = 3 * price + 700000;
-        }
-
-        oi.getCustomizeProduct().setPrice(price);
-        JOptionPane.showMessageDialog(null, "Your house customization has been added to your cart", "Cart Info", JOptionPane.INFORMATION_MESSAGE);
-
-    }//GEN-LAST:event_addJBtnActionPerformed
-
-    private void nextJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextJButtonActionPerformed
-
-        ManageOrderJPanel vjp = new ManageOrderJPanel(userProcessContainer, mod, order, customerOrganization, account, enterprise, business);
-        userProcessContainer.add("ManageOrderJPanel", vjp);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-
-    }//GEN-LAST:event_nextJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

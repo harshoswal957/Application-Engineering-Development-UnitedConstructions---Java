@@ -13,6 +13,7 @@ import business.organization.Organization;
 import business.useraccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import java.util.logging.*;
 
 /**
  *
@@ -28,6 +29,8 @@ public class ArchitectWorkAreaManagementJPanel extends javax.swing.JPanel {
     private LayoutOrganization organization;
     private UserAccount userAccount;
     private Ecosystem business;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 
     public ArchitectWorkAreaManagementJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
         initComponents();
@@ -39,6 +42,7 @@ public class ArchitectWorkAreaManagementJPanel extends javax.swing.JPanel {
 
         valueLabel.setText(enterprise.getName());
         orgValueLabel.setText(organization.getName());
+        logr.info("Entered the Architect UI");
     }
 
     /**
@@ -56,9 +60,10 @@ public class ArchitectWorkAreaManagementJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         enterpriseLabel1 = new javax.swing.JLabel();
         orgValueLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -98,6 +103,9 @@ public class ArchitectWorkAreaManagementJPanel extends javax.swing.JPanel {
         orgValueLabel.setText("<value>");
         add(orgValueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 340, 26));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/architect1.jpg"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 330, -1, -1));
+
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel2.setText("Layout Work Area Management");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
@@ -124,6 +132,7 @@ public class ArchitectWorkAreaManagementJPanel extends javax.swing.JPanel {
     private javax.swing.JButton customizeApartmentJButton;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel enterpriseLabel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel orgValueLabel;
     private javax.swing.JLabel valueLabel;
