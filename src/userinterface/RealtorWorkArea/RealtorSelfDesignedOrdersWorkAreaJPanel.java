@@ -19,6 +19,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
 
 /**
  *
@@ -32,7 +33,8 @@ public class RealtorSelfDesignedOrdersWorkAreaJPanel extends javax.swing.JPanel 
     private RealtorOrganization realtorOrganization;
     private UserAccount userAccount;
     private Ecosystem business;
-
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    
     public RealtorSelfDesignedOrdersWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -96,7 +98,7 @@ public class RealtorSelfDesignedOrdersWorkAreaJPanel extends javax.swing.JPanel 
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -118,7 +120,7 @@ public class RealtorSelfDesignedOrdersWorkAreaJPanel extends javax.swing.JPanel 
                 requestDesignJButtonActionPerformed(evt);
             }
         });
-        add(requestDesignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 190, 43));
+        add(requestDesignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 200, 43));
 
         refreshJButton.setBackground(new java.awt.Color(204, 204, 255));
         refreshJButton.setFont(new java.awt.Font("Palatino", 1, 18)); // NOI18N
@@ -138,7 +140,7 @@ public class RealtorSelfDesignedOrdersWorkAreaJPanel extends javax.swing.JPanel 
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 190, 43));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 200, 43));
 
         customerWorkRequestJTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         customerWorkRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -235,7 +237,7 @@ public class RealtorSelfDesignedOrdersWorkAreaJPanel extends javax.swing.JPanel 
         populateCustomerWorkRequestTable();
         JOptionPane.showMessageDialog(null, "Order sent to Architect", "Info", JOptionPane.INFORMATION_MESSAGE);
 
-
+        logr.info("Request Architect Button clicked");
     }//GEN-LAST:event_requestDesignJButtonActionPerformed
 
     private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed

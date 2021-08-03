@@ -25,6 +25,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
 
 /**
  *
@@ -40,6 +41,7 @@ public class RealtorPropertyManagerWorkAreaJPanel extends javax.swing.JPanel {
     private Organization organization;
     private Enterprise enterprise;
     private Ecosystem business;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public RealtorPropertyManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
         initComponents();
@@ -114,7 +116,7 @@ public class RealtorPropertyManagerWorkAreaJPanel extends javax.swing.JPanel {
         createRealtorAptjButton = new javax.swing.JButton();
         sellAptjButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -267,6 +269,34 @@ public class RealtorPropertyManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
+    private void apartmentTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apartmentTypeJComboBoxActionPerformed
+
+        final DefaultComboBoxModel studioHousingComplexTypeJComboBox = new DefaultComboBoxModel(new String[]{"Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments"});
+        final DefaultComboBoxModel bhk2HousingComplexTypeJComboBox = new DefaultComboBoxModel(new String[]{"Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments"});
+        final DefaultComboBoxModel bhk3HousingComplexTypeJComboBox = new DefaultComboBoxModel(new String[]{"Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments"});
+
+        apartmentTypeJComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (apartmentTypeJComboBox.getSelectedItem().equals("Studio")) {
+                    housingComplexTypeJComboBox.setModel(studioHousingComplexTypeJComboBox);
+
+                } else if(apartmentTypeJComboBox.getSelectedItem().equals("2BHK")){
+                    housingComplexTypeJComboBox.setModel(bhk2HousingComplexTypeJComboBox);
+                }
+                else {
+                    housingComplexTypeJComboBox.setModel(bhk3HousingComplexTypeJComboBox);
+                }
+
+            }
+
+        });
+    }//GEN-LAST:event_apartmentTypeJComboBoxActionPerformed
+
+    private void housingComplexTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_housingComplexTypeJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_housingComplexTypeJComboBoxActionPerformed
+
     private void createCarModel1JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCarModelJButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_createCarModelJButton1ActionPerformed
@@ -360,7 +390,8 @@ public class RealtorPropertyManagerWorkAreaJPanel extends javax.swing.JPanel {
 
         populateTable();
 
-
+        
+        logr.info("Create Apartment Button clicked");
     }//GEN-LAST:event_createRealtorAptjButtonActionPerformed
 
     private void sellAptjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellAptjButtonActionPerformed
@@ -421,34 +452,6 @@ public class RealtorPropertyManagerWorkAreaJPanel extends javax.swing.JPanel {
     private void quantityJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityJTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_quantityJTextFieldActionPerformed
-
-    private void housingComplexTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_housingComplexTypeJComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_housingComplexTypeJComboBoxActionPerformed
-
-    private void apartmentTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apartmentTypeJComboBoxActionPerformed
-
-        final DefaultComboBoxModel studioHousingComplexTypeJComboBox = new DefaultComboBoxModel(new String[]{"Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments"});
-        final DefaultComboBoxModel bhk2HousingComplexTypeJComboBox = new DefaultComboBoxModel(new String[]{"Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments"});
-        final DefaultComboBoxModel bhk3HousingComplexTypeJComboBox = new DefaultComboBoxModel(new String[]{"Avalon Residences", "Windsor at Oak Grove", "Burbank Apartments", "Church Park Luxury Apartments"});
-
-        apartmentTypeJComboBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (apartmentTypeJComboBox.getSelectedItem().equals("Studio")) {
-                    housingComplexTypeJComboBox.setModel(studioHousingComplexTypeJComboBox);
-
-                } else if(apartmentTypeJComboBox.getSelectedItem().equals("2BHK")){
-                    housingComplexTypeJComboBox.setModel(bhk2HousingComplexTypeJComboBox);
-                }
-                else {
-                    housingComplexTypeJComboBox.setModel(bhk3HousingComplexTypeJComboBox);
-                }
-
-            }
-
-        });
-    }//GEN-LAST:event_apartmentTypeJComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

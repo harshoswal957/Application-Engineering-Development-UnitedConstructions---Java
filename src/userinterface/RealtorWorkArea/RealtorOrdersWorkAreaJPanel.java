@@ -17,6 +17,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
 
 /**
  *
@@ -32,6 +33,7 @@ public class RealtorOrdersWorkAreaJPanel extends javax.swing.JPanel {
     private RealtorOrganization organization;
     private UserAccount userAccount;
     private Ecosystem business;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public RealtorOrdersWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
         initComponents();
@@ -91,7 +93,7 @@ public class RealtorOrdersWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -228,7 +230,7 @@ public class RealtorOrdersWorkAreaJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Order confirmation sent to Customer", "Info", JOptionPane.INFORMATION_MESSAGE);
 
         populateRealtorTable();
-
+        logr.info("Order Confirmation Button clicked");
     }//GEN-LAST:event_sendToCustomerJButtonActionPerformed
 
     private void acceptReqJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptReqJButton1ActionPerformed

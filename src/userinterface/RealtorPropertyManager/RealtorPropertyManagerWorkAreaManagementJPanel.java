@@ -12,6 +12,7 @@ import business.organization.Organization;
 import business.useraccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import java.util.logging.*;
 
 /**
  *
@@ -27,6 +28,7 @@ public class RealtorPropertyManagerWorkAreaManagementJPanel extends javax.swing.
     private RealtorPropertyManagerOrganization organization;
     private UserAccount userAccount;
     private Ecosystem business;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public RealtorPropertyManagerWorkAreaManagementJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
         initComponents();
@@ -37,6 +39,7 @@ public class RealtorPropertyManagerWorkAreaManagementJPanel extends javax.swing.
         this.business = business;
         valueLabel.setText(enterprise.getName());
         orgValueLabel.setText(organization.getName());
+        logr.info("Realtor Property Manager UI");
     }
 
     /**
@@ -57,7 +60,7 @@ public class RealtorPropertyManagerWorkAreaManagementJPanel extends javax.swing.
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
