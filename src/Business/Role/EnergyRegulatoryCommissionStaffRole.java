@@ -8,9 +8,12 @@ package business.role;
 import business.ecosystem.Ecosystem;
 
 import business.enterprise.Enterprise;
+import business.enterprise.RegulatoryEnterprise;
 import business.organization.Organization;
+import business.organization.EnergyRegulatoryCommissionOrganization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.EnergyRegulatoryCommission.EnergyRegulatoryCommissionWorkAreaJPanel;
 
 /**
  *
@@ -20,8 +23,11 @@ public class EnergyRegulatoryCommissionStaffRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new EnergyRegulatoryCommissionWorkAreaJPanel(userProcessContainer, account, (EnergyRegulatoryCommissionOrganization) organization, (RegulatoryEnterprise) enterprise, business);
     }
 
-    
+    @Override
+    public String toString() {
+        return "Energy Regulatory Commission Staff"; //To change body of generated methods, choose Tools | Templates.
+    }
 }

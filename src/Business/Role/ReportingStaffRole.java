@@ -6,10 +6,13 @@
 package business.role;
 
 import business.ecosystem.Ecosystem;
+import business.enterprise.UnitedConstructionEnterprise;
 import business.enterprise.Enterprise;
 import business.organization.Organization;
+import business.organization.ReportingOrganization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.reporting.ReportingWorkAreaManagementJPanel;
 
 /**
  *
@@ -19,9 +22,13 @@ public class ReportingStaffRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new ReportingWorkAreaManagementJPanel(userProcessContainer, account, (ReportingOrganization) organization, (UnitedConstructionEnterprise) enterprise, business);
+
     }
 
-    
+    @Override
+    public String toString() {
+        return "Reporting Staff"; //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

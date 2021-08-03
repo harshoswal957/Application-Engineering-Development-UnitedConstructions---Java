@@ -5,6 +5,7 @@
  */
 package business.organization;
 
+import Business.BarChart.Report;
 import business.role.Role;
 import business.role.ReportingStaffRole;
 import java.util.ArrayList;
@@ -19,7 +20,15 @@ public class ReportingOrganization extends Organization {
         super(Organization.Type.Reporting.getValue());
     }
 
-    
+    private Report report;
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
+    }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
